@@ -2,6 +2,7 @@ language: go
 
 go:
   - "1.12"
+  - "1.13.7"
 
 env:
   - GO111MODULE=on
@@ -16,8 +17,8 @@ script:
   - cp remoting/zookeeper/zookeeper-4unittest/contrib/fatjar/zookeeper-3.4.9-fatjar.jar registry/zookeeper/zookeeper-4unittest/contrib/fatjar/
   - go mod vendor && go test ./... -coverprofile=coverage.txt -covermode=atomic
 
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+# after_success:
+  # - bash <(curl -s https://codecov.io/bash)
 
-notifications:
-  webhooks: https://oapi.dingtalk.com/robot/send?access_token=f5d6237f2c79db584e75604f7f88db1ce1673c8c0e98451217b28fde791e1d4f
+# notifications:
+  # webhooks: https://oapi.dingtalk.com/robot/send?access_token=f5d6237f2c79db584e75604f7f88db1ce1673c8c0e98451217b28fde791e1d4f
